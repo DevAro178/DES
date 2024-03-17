@@ -26,9 +26,10 @@ class Key:
         # Initialising Variables and Objects
         dt=DataTypes()
         tb=Tables()
-        self.key = value
+        self.key = dt.text2hex(value)
         # Converting Hex Key to Binary
         hex_key=dt.hex2bin(self.key)
+        # hex_key='0001001100110100010101110111100110011011101111001101111111110001'
         # Parity bit drop table
         hex_key = ''.join(hex_key[i-1] for i in tb.keyp)
         # Splitting 56bits to 28bits
@@ -38,8 +39,8 @@ class Key:
         self.make_subkeys_16(tb.shift_table)
         # Key Compression using PC-2 table
         self.subkey_comp(tb.key_comp)
-        
-        print(self.subkeys)
+        # print(self.subkeys)
+        return self.subkeys
         
         
         
