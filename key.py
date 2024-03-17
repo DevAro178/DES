@@ -29,7 +29,6 @@ class Key:
         self.key = dt.text2hex(value)
         # Converting Hex Key to Binary
         hex_key=dt.hex2bin(self.key)
-        # hex_key='0001001100110100010101110111100110011011101111001101111111110001'
         # Parity bit drop table
         hex_key = ''.join(hex_key[i-1] for i in tb.keyp)
         # Splitting 56bits to 28bits

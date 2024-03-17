@@ -44,11 +44,11 @@ class DataTypes:
     
     def split_into_chunks(self, s):
         chunks = [s[i:i+8] for i in range(0, len(s), 8)]
-        chunks[-1] = chunks[-1].ljust(8, 'x')
+        chunks[-1] = chunks[-1].ljust(8, '~')
         return chunks
     
     def split_hex_2_64bits(self,s):
-        chunks = [s[i:i+18] for i in range(0, len(s), 18)]
+        chunks = [s[i:i+16] for i in range(0, len(s), 16)]
         return chunks
     
     def XOR(self,a, b):
